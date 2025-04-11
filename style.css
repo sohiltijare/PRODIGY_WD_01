@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --mainColor: #4fa1f0;
+  --hoverColor: #3c8ed9;
+  --backgroundColor: #f5faff;
+  --darkOne: #1e1e2f;
+  --darkTwo: #2d2d44;
+  --lightOne: #7a7a7a;
+  --lightTwo: #b1b1b1;
+  --white: #fff;
+  --cardShadow: rgba(0, 0, 0, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--backgroundColor);
+  color: var(--darkOne);
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+header {
+  padding: 1.8rem 0;
+  background: transparent;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logo img {
+  width: 48px;
+}
+
+.logo h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--darkTwo);
+}
+
+.links ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--darkOne);
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--mainColor);
+  background-color: rgba(79, 161, 240, 0.15);
+}
+
+.btn {
+  background-color: var(--mainColor);
+  color: var(--white) !important;
+  padding: 0.8rem 1.8rem;
+  border-radius: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 18px var(--cardShadow);
+}
+
+.btn:hover {
+  background-color: var(--hoverColor);
+  transform: translateY(-3px);
+}
+
+.showcase-area {
+  padding: 6rem 0;
+}
+
+.showcase-area .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  align-items: center;
+  gap: 3rem;
+}
+
+.big-title h1 {
+  font-size: 3rem;
+  color: var(--darkOne);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.features-list {
+  margin-top: 1.5rem;
+  padding-left: 1.4rem;
+}
+
+.features-list li {
+  margin-bottom: 1.1rem;
+  font-size: 1.15rem;
+  color: var(--lightOne);
+  line-height: 1.8;
+  position: relative;
+  padding-left: 1.6rem;
+}
+
+.features-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--mainColor);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.right {
+  text-align: center;
+}
+
+.person {
+  max-width: 500px;
+  width: 100%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.toggle-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--darkTwo);
+  color: var(--white);
+  border: none;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 6px 16px var(--cardShadow);
+}
+
+.toggle-btn:hover {
+  background-color: var(--mainColor);
+  transform: scale(1.1);
+}
+
+.toggle-btn i:last-child {
+  display: none;
+}
+
+body.dark-mode .toggle-btn i:first-child {
+  display: none;
+}
+
+body.dark-mode .toggle-btn i:last-child {
+  display: block;
+}
+
+.shape {
+  position: absolute;
+  bottom: -150px;
+  left: -100px;
+  width: 520px;
+  opacity: 0.04;
+  z-index: -1;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-22px);
+  }
+}
+
+body.dark-mode {
+  background-color: var(--darkOne);
+  color: var(--white);
+}
+
+body.dark-mode .logo h3,
+body.dark-mode .links a,
+body.dark-mode .big-title h1 {
+  color: var(--white);
+}
+
+body.dark-mode .links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--mainColor);
+}
+
+body.dark-mode .features-list li {
+  color: var(--lightTwo);
+}
+
+@media (max-width: 768px) {
+  .showcase-area {
+    padding: 3.5rem 1rem;
+  }
+
+  .big-title h1 {
+    font-size: 2.2rem;
+  }
+
+  .links ul {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  header .container {
+    flex-direction: column;
+    gap: 1.4rem;
+    text-align: center;
+  }
+
+  .toggle-btn {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
